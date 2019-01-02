@@ -95,7 +95,10 @@ class AOCDay:
                 dprint("")
     
             dprint("== Part 1 ==")
-            part1 = self.part1(input_data)
+            try:
+                part1 = self.part1(input_data)
+            except NotImplementedError:
+                part1 = ["Not Implemented"]
             printed = False
             if part1:
                 for x in part1:
@@ -116,7 +119,10 @@ class AOCDay:
                 dprint("")
     
             dprint("== Part 2 ==")
-            part2 = self.part2(input_data)
+            try:
+                part2 = self.part2(input_data)
+            except NotImplementedError:
+                part2 = ["Not Implemented"]
             printed = False
             if part2:
                 for x in part2:
