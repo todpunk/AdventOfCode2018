@@ -28,4 +28,23 @@ class DayOne(AOCDay):
         yield threes * twos
 
     def part2(self, input_data):
-        raise NotImplementedError()
+        input_data = sorted(input_data)
+        a, b = input_data[:-1], input_data[1:]
+        word_size = len(a[0])
+        box_a = None
+        box_b = None
+        for i in range(len(a)):
+            off_by = 0
+            for x in range(word_size):
+                if a[i][x] != b[i][x]:
+                    off_by += 1
+                if off_by >= 2:
+                    break
+            if off_by == 1:
+                box_a = a[i]
+                box_b = b[i]
+        answer = ""
+        for i in range(word_size):
+            if box_a[i] == box_b[i]:
+                answer = answer + box_a[i]
+        yield answer
